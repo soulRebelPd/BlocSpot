@@ -1,5 +1,5 @@
 //
-//  MapItemCell.h
+//  PoiTableViewCell.h
 //  BlocSpot
 //
 //  Created by Corey Norford on 4/1/15.

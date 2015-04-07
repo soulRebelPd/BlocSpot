@@ -7,8 +7,8 @@
 //
 
 #import "TabBarController.h"
-#import "DataSource.h"
-#import "ListViewController.h"
+#import "PoiDataSource.h"
+#import "PoiTableViewController.h"
 
 @interface TabBarController ()
 
@@ -19,7 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.delegate = self;
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,19 +30,6 @@
 #pragma mark - Navigation
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
-    NSArray *mapItems = [DataSource sharedInstance].mapItems;
-
-    ListViewController *listViewController = viewController;
-    [listViewController setMapItems: mapItems];
-    
 }
-
-/*
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

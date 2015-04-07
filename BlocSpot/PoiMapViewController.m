@@ -1,22 +1,22 @@
 //
-//  MapViewController.m
+//  PoiMapViewController.m
 //  BlocSpot
 //
-//  Created by Corey Norford on 3/30/15.
+//  Created by Corey Norford on 4/6/15.
 //  Copyright (c) 2015 Bloc. All rights reserved.
 //
 
-#import "MapViewController.h"
+#import "PoiMapViewController.h"
 #import "PoiDataSource.h"
 #import "MapItem.h"
 
 #define METERS_PER_MILE 3000.0
 #define DEFAULT_SEARCH @"Restaurant"
 
-@interface MapViewController ()
+@interface PoiMapViewController ()
 @end
 
-@implementation MapViewController
+@implementation PoiMapViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,13 +25,13 @@
     self.mapView.delegate = self;
     
     if(self.mapView.annotations.count < 1){
-        [self zoomToLastLocation];
         [self runDefaultSearch];
         [self bindSavedItems];
     }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self zoomToLastLocation];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,7 +57,6 @@
     NSString *subTitle = [annotation subtitle];
     if([subTitle isEqualToString:@"Saved"]){
         pin.pinColor = MKPinAnnotationColorPurple;
-        pin.animatesDrop = NO;
     }
     else{
         NSString *title = [annotation title];
@@ -65,17 +64,16 @@
         
         if(!inSavedItems){
             pin.pinColor = MKPinAnnotationColorRed;
-            pin.animatesDrop = YES;
         }
         else{
             pin.pinColor = MKPinAnnotationColorPurple;
-            pin.animatesDrop = NO;
         }
     }
     
     //pin.image=[UIImage imageNamed:@"whatever.png"];
     pin.userInteractionEnabled = YES;
     pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeCustom];
+    pin.animatesDrop = YES;
     [pin setEnabled:YES];
     [pin setCanShowCallout:YES];
     
@@ -87,7 +85,7 @@
 -(void)bindSavedItems{
     [[PoiDataSource sharedInstance] fetchSavedItems];
     NSMutableArray *savedItems = [PoiDataSource sharedInstance].savedMapItems;
-
+    
     for(MapItem *item in savedItems){
         MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
         
