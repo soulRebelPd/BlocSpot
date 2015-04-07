@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "DataSource.h"
+#import "PoiDataSource.h"
 
 @interface AppDelegate ()
 
@@ -18,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [DataSource sharedInstance];
+    [PoiDataSource sharedInstance];
     
     return YES;
 }
