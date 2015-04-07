@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04136BDB1AC9F8F400E58C34 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04136BDA1AC9F8F400E58C34 /* MapViewController.m */; };
+		04136BDE1ACB2FF100E58C34 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 04136BDD1ACB2FF100E58C34 /* DataSource.m */; };
+		04136BE41ACC278400E58C34 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04136BE31ACC278400E58C34 /* ListViewController.m */; };
+		04136BF01ACC2DCC00E58C34 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04136BEF1ACC2DCC00E58C34 /* TabBarController.m */; };
+		04136BF21ACC4CBA00E58C34 /* MapItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04136BF11ACC4CBA00E58C34 /* MapItemCell.xib */; };
+		04136BF51ACC4FE000E58C34 /* MapItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04136BF41ACC4FE000E58C34 /* MapItemCell.m */; };
 		04B2F0FF1AC5A96D00C339E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2F0FE1AC5A96D00C339E4 /* main.m */; };
 		04B2F1021AC5A96D00C339E4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2F1011AC5A96D00C339E4 /* AppDelegate.m */; };
 		04B2F1051AC5A96D00C339E4 /* BlocSpot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04B2F1031AC5A96D00C339E4 /* BlocSpot.xcdatamodeld */; };
-		04B2F1081AC5A96D00C339E4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2F1071AC5A96D00C339E4 /* ViewController.m */; };
 		04B2F10B1AC5A96D00C339E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B2F1091AC5A96D00C339E4 /* Main.storyboard */; };
 		04B2F10D1AC5A96D00C339E4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B2F10C1AC5A96D00C339E4 /* Images.xcassets */; };
 		04B2F1101AC5A96D00C339E4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B2F10E1AC5A96D00C339E4 /* LaunchScreen.xib */; };
 		04B2F11C1AC5A96E00C339E4 /* BlocSpotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2F11B1AC5A96E00C339E4 /* BlocSpotTests.m */; };
+		04B2F1281AC5AF8C00C339E4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B2F1271AC5AF8C00C339E4 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,20 +34,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04136BD91AC9F8F400E58C34 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		04136BDA1AC9F8F400E58C34 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		04136BDC1ACB2FF100E58C34 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		04136BDD1ACB2FF100E58C34 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		04136BE21ACC278400E58C34 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		04136BE31ACC278400E58C34 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		04136BEE1ACC2DCC00E58C34 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		04136BEF1ACC2DCC00E58C34 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		04136BF11ACC4CBA00E58C34 /* MapItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapItemCell.xib; sourceTree = "<group>"; };
+		04136BF31ACC4FE000E58C34 /* MapItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapItemCell.h; sourceTree = "<group>"; };
+		04136BF41ACC4FE000E58C34 /* MapItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapItemCell.m; sourceTree = "<group>"; };
 		04B2F0F91AC5A96D00C339E4 /* BlocSpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlocSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B2F0FD1AC5A96D00C339E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B2F0FE1AC5A96D00C339E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04B2F1001AC5A96D00C339E4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04B2F1011AC5A96D00C339E4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		04B2F1041AC5A96D00C339E4 /* BlocSpot.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlocSpot.xcdatamodel; sourceTree = "<group>"; };
-		04B2F1061AC5A96D00C339E4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		04B2F1071AC5A96D00C339E4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		04B2F10A1AC5A96D00C339E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04B2F10C1AC5A96D00C339E4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		04B2F10F1AC5A96D00C339E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		04B2F1151AC5A96E00C339E4 /* BlocSpotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocSpotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B2F11A1AC5A96E00C339E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B2F11B1AC5A96E00C339E4 /* BlocSpotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlocSpotTests.m; sourceTree = "<group>"; };
+		04B2F1271AC5AF8C00C339E4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B2F1281AC5AF8C00C339E4 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +82,7 @@
 		04B2F0F01AC5A96D00C339E4 = {
 			isa = PBXGroup;
 			children = (
+				04B2F1271AC5AF8C00C339E4 /* MapKit.framework */,
 				04B2F0FB1AC5A96D00C339E4 /* BlocSpot */,
 				04B2F1181AC5A96E00C339E4 /* BlocSpotTests */,
 				04B2F0FA1AC5A96D00C339E4 /* Products */,
@@ -85,13 +103,22 @@
 			children = (
 				04B2F1001AC5A96D00C339E4 /* AppDelegate.h */,
 				04B2F1011AC5A96D00C339E4 /* AppDelegate.m */,
-				04B2F1061AC5A96D00C339E4 /* ViewController.h */,
-				04B2F1071AC5A96D00C339E4 /* ViewController.m */,
-				04B2F1091AC5A96D00C339E4 /* Main.storyboard */,
+				04B2F1031AC5A96D00C339E4 /* BlocSpot.xcdatamodeld */,
+				04136BDC1ACB2FF100E58C34 /* DataSource.h */,
+				04136BDD1ACB2FF100E58C34 /* DataSource.m */,
 				04B2F10C1AC5A96D00C339E4 /* Images.xcassets */,
 				04B2F10E1AC5A96D00C339E4 /* LaunchScreen.xib */,
-				04B2F1031AC5A96D00C339E4 /* BlocSpot.xcdatamodeld */,
+				04136BE21ACC278400E58C34 /* ListViewController.h */,
+				04136BE31ACC278400E58C34 /* ListViewController.m */,
+				04B2F1091AC5A96D00C339E4 /* Main.storyboard */,
+				04136BF31ACC4FE000E58C34 /* MapItemCell.h */,
+				04136BF41ACC4FE000E58C34 /* MapItemCell.m */,
+				04136BF11ACC4CBA00E58C34 /* MapItemCell.xib */,
+				04136BD91AC9F8F400E58C34 /* MapViewController.h */,
+				04136BDA1AC9F8F400E58C34 /* MapViewController.m */,
 				04B2F0FC1AC5A96D00C339E4 /* Supporting Files */,
+				04136BEE1ACC2DCC00E58C34 /* TabBarController.h */,
+				04136BEF1ACC2DCC00E58C34 /* TabBarController.m */,
 			);
 			path = BlocSpot;
 			sourceTree = "<group>";
@@ -171,6 +198,11 @@
 				TargetAttributes = {
 					04B2F0F81AC5A96D00C339E4 = {
 						CreatedOnToolsVersion = 6.2;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					04B2F1141AC5A96E00C339E4 = {
 						CreatedOnToolsVersion = 6.2;
@@ -203,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B2F10B1AC5A96D00C339E4 /* Main.storyboard in Resources */,
+				04136BF21ACC4CBA00E58C34 /* MapItemCell.xib in Resources */,
 				04B2F1101AC5A96D00C339E4 /* LaunchScreen.xib in Resources */,
 				04B2F10D1AC5A96D00C339E4 /* Images.xcassets in Resources */,
 			);
@@ -224,7 +257,11 @@
 			files = (
 				04B2F1051AC5A96D00C339E4 /* BlocSpot.xcdatamodeld in Sources */,
 				04B2F1021AC5A96D00C339E4 /* AppDelegate.m in Sources */,
-				04B2F1081AC5A96D00C339E4 /* ViewController.m in Sources */,
+				04136BF51ACC4FE000E58C34 /* MapItemCell.m in Sources */,
+				04136BE41ACC278400E58C34 /* ListViewController.m in Sources */,
+				04136BDE1ACB2FF100E58C34 /* DataSource.m in Sources */,
+				04136BDB1AC9F8F400E58C34 /* MapViewController.m in Sources */,
+				04136BF01ACC2DCC00E58C34 /* TabBarController.m in Sources */,
 				04B2F0FF1AC5A96D00C339E4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +455,7 @@
 				04B2F1211AC5A96E00C339E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04B2F1221AC5A96E00C339E4 /* Build configuration list for PBXNativeTarget "BlocSpotTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +464,7 @@
 				04B2F1241AC5A96E00C339E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
