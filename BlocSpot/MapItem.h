@@ -15,5 +15,6 @@
 @property double latitude;
 @property float longitude;
 @property bool isSavedItem;
+@property NSString *note;
 
 @end

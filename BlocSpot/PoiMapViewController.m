@@ -9,6 +9,7 @@
 #import "PoiMapViewController.h"
 #import "PoiDataSource.h"
 #import "MapItem.h"
+#import "CallViewController.h"
 
 #define METERS_PER_MILE 3000.0
 #define DEFAULT_SEARCH @"Restaurant"
@@ -25,13 +26,17 @@
     self.mapView.delegate = self;
     
     if(self.mapView.annotations.count < 1){
+        [self zoomToLastLocation];
         [self runDefaultSearch];
         [self bindSavedItems];
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [self zoomToLastLocation];
+-(void)viewDidAppear:(BOOL)animated{
+    if(self.mapItemToShow!= nil){
+    }
+    else{
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,28 +61,43 @@
     
     NSString *subTitle = [annotation subtitle];
     if([subTitle isEqualToString:@"Saved"]){
-        pin.pinColor = MKPinAnnotationColorPurple;
+        pin = [self configureSavedPinWithPin:pin];
     }
     else{
         NSString *title = [annotation title];
         bool inSavedItems = [[PoiDataSource sharedInstance] existsInSavedMapItems:title];
         
         if(!inSavedItems){
-            pin.pinColor = MKPinAnnotationColorRed;
+            pin = [self configureUnSavedPinWithPin:pin];
         }
         else{
-            pin.pinColor = MKPinAnnotationColorPurple;
+            pin = [self configureSavedPinWithPin:pin];
         }
     }
     
     //pin.image=[UIImage imageNamed:@"whatever.png"];
     pin.userInteractionEnabled = YES;
-    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeCustom];
-    pin.animatesDrop = YES;
     [pin setEnabled:YES];
     [pin setCanShowCallout:YES];
     
     return pin;
+}
+
+-(void)openDetailCallout: (UIButton *)sender {
+    CallViewController *callViewController = [[CallViewController alloc] init];
+    
+    MKPointAnnotation *annotation = [self.mapView.selectedAnnotations objectAtIndex:([self.mapView.selectedAnnotations count]-1)];
+    MapItem *mapItem = [[PoiDataSource sharedInstance] getMapItemWithLocationName:annotation.title];
+    callViewController.mapItem = mapItem;
+
+    [self presentViewController:callViewController animated:YES completion:^{
+    }];
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
+}
+
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
 }
 
 #pragma mark - Map
@@ -127,6 +147,24 @@
     }];
 }
 
+-(MKPinAnnotationView *)configureSavedPinWithPin:(MKPinAnnotationView *)pin{
+    pin.pinColor = MKPinAnnotationColorPurple;
+    pin.animatesDrop = NO;
+    
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [rightButton addTarget:self action:@selector(openDetailCallout:) forControlEvents:UIControlEventTouchUpInside];
+    pin.rightCalloutAccessoryView = rightButton;
+    
+    return pin;
+}
+
+-(MKPinAnnotationView *)configureUnSavedPinWithPin:(MKPinAnnotationView *)pin{
+    pin.pinColor = MKPinAnnotationColorRed;
+    pin.animatesDrop = YES;
+    
+    return pin;
+}
+
 #pragma mark - Search
 
 -(void)runDefaultSearch{
@@ -152,5 +190,6 @@
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
     self.searchBar.showsCancelButton = YES;
 }
+
 
 @end

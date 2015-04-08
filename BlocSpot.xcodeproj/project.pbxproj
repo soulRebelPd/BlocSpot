@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04136BDB1AC9F8F400E58C34 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04136BDA1AC9F8F400E58C34 /* MapViewController.m */; };
 		04136BF01ACC2DCC00E58C34 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04136BEF1ACC2DCC00E58C34 /* TabBarController.m */; };
 		04136BF21ACC4CBA00E58C34 /* MapItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04136BF11ACC4CBA00E58C34 /* MapItemCell.xib */; };
 		04136BF51ACC4FE000E58C34 /* MapItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04136BF41ACC4FE000E58C34 /* MapItemCell.m */; };
@@ -15,6 +14,8 @@
 		045ED73B1AD334A4006CE8BD /* PoiDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED73A1AD334A4006CE8BD /* PoiDataSource.m */; };
 		045ED73E1AD3352D006CE8BD /* PoiTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED73D1AD3352D006CE8BD /* PoiTableViewController.m */; };
 		045ED7411AD33633006CE8BD /* PoiMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED7401AD33633006CE8BD /* PoiMapViewController.m */; };
+		045ED7451AD46028006CE8BD /* CallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045ED7441AD46028006CE8BD /* CallViewController.xib */; };
+		045ED7481AD46051006CE8BD /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED7471AD46051006CE8BD /* CallViewController.m */; };
 		04B2F0FF1AC5A96D00C339E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2F0FE1AC5A96D00C339E4 /* main.m */; };
 		04B2F1021AC5A96D00C339E4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B2F1011AC5A96D00C339E4 /* AppDelegate.m */; };
 		04B2F1051AC5A96D00C339E4 /* BlocSpot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04B2F1031AC5A96D00C339E4 /* BlocSpot.xcdatamodeld */; };
@@ -36,8 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04136BD91AC9F8F400E58C34 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		04136BDA1AC9F8F400E58C34 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		04136BEE1ACC2DCC00E58C34 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		04136BEF1ACC2DCC00E58C34 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		04136BF11ACC4CBA00E58C34 /* MapItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapItemCell.xib; sourceTree = "<group>"; };
@@ -51,6 +50,9 @@
 		045ED73D1AD3352D006CE8BD /* PoiTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PoiTableViewController.m; sourceTree = "<group>"; };
 		045ED73F1AD33633006CE8BD /* PoiMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoiMapViewController.h; sourceTree = "<group>"; };
 		045ED7401AD33633006CE8BD /* PoiMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PoiMapViewController.m; sourceTree = "<group>"; };
+		045ED7441AD46028006CE8BD /* CallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CallViewController.xib; sourceTree = "<group>"; };
+		045ED7461AD46051006CE8BD /* CallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallViewController.h; sourceTree = "<group>"; };
+		045ED7471AD46051006CE8BD /* CallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallViewController.m; sourceTree = "<group>"; };
 		04B2F0F91AC5A96D00C339E4 /* BlocSpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlocSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B2F0FD1AC5A96D00C339E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B2F0FE1AC5A96D00C339E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -120,8 +122,6 @@
 				04136BF31ACC4FE000E58C34 /* MapItemCell.h */,
 				04136BF41ACC4FE000E58C34 /* MapItemCell.m */,
 				04136BF11ACC4CBA00E58C34 /* MapItemCell.xib */,
-				04136BD91AC9F8F400E58C34 /* MapViewController.h */,
-				04136BDA1AC9F8F400E58C34 /* MapViewController.m */,
 				045ED73F1AD33633006CE8BD /* PoiMapViewController.h */,
 				045ED7401AD33633006CE8BD /* PoiMapViewController.m */,
 				04B2F0FC1AC5A96D00C339E4 /* Supporting Files */,
@@ -129,6 +129,9 @@
 				04136BEF1ACC2DCC00E58C34 /* TabBarController.m */,
 				04136C331ACD986600E58C34 /* MapItem.h */,
 				04136C341ACD986600E58C34 /* MapItem.m */,
+				045ED7461AD46051006CE8BD /* CallViewController.h */,
+				045ED7471AD46051006CE8BD /* CallViewController.m */,
+				045ED7441AD46028006CE8BD /* CallViewController.xib */,
 			);
 			path = BlocSpot;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B2F10B1AC5A96D00C339E4 /* Main.storyboard in Resources */,
+				045ED7451AD46028006CE8BD /* CallViewController.xib in Resources */,
 				04136BF21ACC4CBA00E58C34 /* MapItemCell.xib in Resources */,
 				04B2F1101AC5A96D00C339E4 /* LaunchScreen.xib in Resources */,
 				04B2F10D1AC5A96D00C339E4 /* Images.xcassets in Resources */,
@@ -269,10 +273,10 @@
 				04B2F1021AC5A96D00C339E4 /* AppDelegate.m in Sources */,
 				04136BF51ACC4FE000E58C34 /* MapItemCell.m in Sources */,
 				045ED73B1AD334A4006CE8BD /* PoiDataSource.m in Sources */,
-				04136BDB1AC9F8F400E58C34 /* MapViewController.m in Sources */,
 				045ED73E1AD3352D006CE8BD /* PoiTableViewController.m in Sources */,
 				04136BF01ACC2DCC00E58C34 /* TabBarController.m in Sources */,
 				04136C351ACD986600E58C34 /* MapItem.m in Sources */,
+				045ED7481AD46051006CE8BD /* CallViewController.m in Sources */,
 				045ED7411AD33633006CE8BD /* PoiMapViewController.m in Sources */,
 				04B2F0FF1AC5A96D00C339E4 /* main.m in Sources */,
 			);

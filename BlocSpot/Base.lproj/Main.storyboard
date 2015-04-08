@@ -7,7 +7,7 @@
         <!--Map-->
         <scene sceneID="UdD-93-pMb">
             <objects>
-                <viewController title="Map" id="GC2-wp-nKZ" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController title="Map" id="GC2-wp-nKZ" customClass="PoiMapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CWW-9u-eIv"/>
                         <viewControllerLayoutGuide type="bottom" id="hJT-G2-Drp"/>
@@ -50,6 +50,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iEl-f2-3ya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="378" y="355"/>
+        </scene>
+        <!--Call View Controller-->
+        <scene sceneID="PD5-gp-x0X">
+            <objects>
+                <viewController id="83s-xX-IqR" customClass="CallViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I4H-H6-6oZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gjf-g9-CDy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FHa-N1-oro">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tl4-Ji-gEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="378" y="1052"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZX0-YV-S34">
