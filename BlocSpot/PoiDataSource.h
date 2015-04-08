@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import "MapItem.h"
 
 typedef void (^NewItemCompletionBlock)(NSError *error);
 
@@ -19,6 +20,8 @@ typedef void (^NewItemCompletionBlock)(NSError *error);
 -(void)persistItem:(MKMapItem *)mkMapItem;
 -(void)fetchSavedItems;
 -(bool)existsInSavedMapItems:(NSString *)locationName;
+-(MapItem *)getMapItemWithLocationName:(NSString *)locationName;
+-(void)updateExistingMapItem:(MapItem *)mapItem;
 
 + (instancetype) sharedInstance;
 

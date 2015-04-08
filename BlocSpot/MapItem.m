@@ -15,6 +15,7 @@
     [coder encodeBool:self.isSavedItem forKey:@"isSavedItem"];
     [coder encodeDouble:self.latitude forKey:@"latitude"];
     [coder encodeDouble:self.longitude forKey:@"longitude"];
+    [coder encodeObject: self.note forKey:@"note"];
 }
 
 - (id)initWithCoder:(NSCoder *)coder {
@@ -24,6 +25,7 @@
     self.isSavedItem = [coder decodeBoolForKey:@"isSavedItem"];
     self.latitude = [coder decodeDoubleForKey:@"latitude"];
     self.longitude = [coder decodeDoubleForKey:@"longitude"];
+    self.note = [coder decodeObjectForKey:@"note"];
     
     return self;
 }

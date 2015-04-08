@@ -86,13 +86,37 @@
     bool isAlreadySaved = [self existsInSavedMapItems:mapItem.locationName];
     if(!isAlreadySaved){
         [self.savedMapItems addObject:mapItem];
-        
-        NSMutableDictionary *dataDict = [[NSMutableDictionary alloc] initWithCapacity:1];
-        [dataDict setObject:self.savedMapItems forKey:@"savedMapItems"];
-        
-        NSString *filePath = [self filePath];
-        [NSKeyedArchiver archiveRootObject:dataDict toFile:filePath];
+        [self persistNotes];
     }
+}
+
+//NOTE: only used by callout controller, can save every time
+-(void)updateExistingMapItem:(MapItem *)mapItem{
+    [self persistNotes];
+}
+
+-(void)saveNote:(NSString *)note withLocationName:(NSString *)locationName{
+    MapItem *mapItem = [self getMapItemWithLocationName:locationName];
+    mapItem.note = note;
+    [self persistNotes];
+}
+
+-(void)persistNotes{
+    NSMutableDictionary *dataDict = [[NSMutableDictionary alloc] initWithCapacity:1];
+    [dataDict setObject:self.savedMapItems forKey:@"savedMapItems"];
+    
+    NSString *filePath = [self filePath];
+    [NSKeyedArchiver archiveRootObject:dataDict toFile:filePath];
+}
+
+-(MapItem *)getMapItemWithLocationName:(NSString *)locationName{
+    for(MapItem *item in self.savedMapItems){
+        if([item.locationName isEqualToString:locationName]){
+            return item;
+        }
+    }
+    
+    return nil;
 }
 
 - (CLLocation *) getLastLocation{
@@ -109,11 +133,11 @@
     return false;
 }
 
+
 #pragma mark - Map - Internal Only
 
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    NSLog(@"%@", [locations lastObject]);
 }
 
 -(NSString *)filePath{
