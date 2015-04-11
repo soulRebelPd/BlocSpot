@@ -18,5 +18,6 @@
 - (IBAction)saveClicked:(id)sender;
 - (IBAction)cancelClicked:(id)sender;
 - (IBAction)shareClicked:(id)sender;
+- (IBAction)deleteClicked:(id)sender;
 
 @end

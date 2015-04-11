@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "PoiDataSource.h"
+#import "RegionMonitor.h"
 
 @interface AppDelegate ()
 
@@ -17,8 +18,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     [PoiDataSource sharedInstance];
+    [RegionMonitor sharedInstance];
+    
+    application.applicationIconBadgeNumber = 0;
+    
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        [application registerUserNotificationSettings:[UIUserNotificationSettings
+                                                       settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound
+                                                       categories:nil]];
+    }
     
     return YES;
 }
@@ -44,7 +53,25 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
+    application.applicationIconBadgeNumber = 0;
     [self saveContext];
+}
+
+#pragma mark - Notifications
+
+-(void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
+}
+
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+    application.applicationIconBadgeNumber = 0;
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:notification.alertTitle
+                                                        message:notification.alertBody
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    
+    [alertView show];
 }
 
 #pragma mark - Core Data stack
@@ -95,7 +122,6 @@
     
     return _persistentStoreCoordinator;
 }
-
 
 - (NSManagedObjectContext *)managedObjectContext {
     // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)

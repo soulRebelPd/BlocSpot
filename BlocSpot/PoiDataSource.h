@@ -12,16 +12,16 @@
 
 typedef void (^NewItemCompletionBlock)(NSError *error);
 
-@interface PoiDataSource : NSObject <CLLocationManagerDelegate>
+@interface PoiDataSource : NSObject 
 
 -(instancetype) init;
 -(void)requestNewItemsWithText:(NSString *)text withRegion:(MKCoordinateRegion)region completion:(void (^)(void))completionBlock;
--(CLLocation *) getLastLocation;
 -(void)persistItem:(MKMapItem *)mkMapItem;
 -(void)fetchSavedItems;
 -(bool)existsInSavedMapItems:(NSString *)locationName;
 -(MapItem *)getMapItemWithLocationName:(NSString *)locationName;
 -(void)updateExistingMapItem:(MapItem *)mapItem;
+-(void)deleteItemWithMapItem:(MapItem *)mapItem;
 
 + (instancetype) sharedInstance;
 

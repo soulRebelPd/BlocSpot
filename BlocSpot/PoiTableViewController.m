@@ -22,13 +22,14 @@
     [super viewDidLoad];
     
     self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    //self.tableView.dataSource = self;
     self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     NSArray *mapItems = [PoiDataSource sharedInstance].mapItems;
     [self setMapItems: mapItems];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +49,8 @@
     
     MKMapItem *mapItem = self.mapItems[indexPath.row];
     cell.poiName.text = mapItem.name;
+    
+    //NOTE: dummy info to populate list box
     CLLocationDegrees latitudeCoordinate = mapItem.placemark.coordinate.latitude;
     cell.poiDistance.text = [NSString stringWithFormat:@"%f", latitudeCoordinate];
     cell.poiDescription.text = mapItem.phoneNumber;
@@ -55,10 +58,10 @@
     bool isSavedItem = [[PoiDataSource sharedInstance] existsInSavedMapItems:cell.poiName.text];
     if(isSavedItem){
         cell.poiName.textColor = [UIColor purpleColor];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else{
         cell.poiName.textColor = [UIColor redColor];
+        
     }
     
     return cell;
