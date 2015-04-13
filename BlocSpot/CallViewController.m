@@ -19,6 +19,7 @@
 - (IBAction)saveClicked:(id)sender {
     self.mapItem.note = self.note.text;
     
+    [[PoiDataSource sharedInstance] persistItemWithItem:self.mapItem];
     [[PoiDataSource sharedInstance] updateExistingMapItem:self.mapItem];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

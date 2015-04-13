@@ -84,23 +84,6 @@
     }
 }
 
-//-(void)rebindSearchItems{
-//    NSMutableArray *savedItems = self.mapItems;
-//    
-//    for(MapItem *item in savedItems){
-//        MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
-//        
-//        CLLocationDegrees latitudeDegrees = item.latitude;
-//        CLLocationDegrees longitudeDegrees = item.longitude;
-//        annotation.coordinate = CLLocationCoordinate2DMake(latitudeDegrees, longitudeDegrees);
-//        
-//        annotation.title = item.locationName;
-//        annotation.subtitle = @"Saved";
-//        
-//        [self.mapView addAnnotation:annotation];
-//    }
-//}
-
 -(void)monitorSavedItems{
     [[PoiDataSource sharedInstance] fetchSavedItems];
     NSMutableArray *savedItems = [PoiDataSource sharedInstance].savedMapItems;
@@ -151,6 +134,10 @@
 -(MKPinAnnotationView *)configureUnSavedPinWithPin:(MKPinAnnotationView *)pin{
     pin.pinColor = MKPinAnnotationColorRed;
     pin.animatesDrop = YES;
+    
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [rightButton addTarget:self action:@selector(openDetailCallout:) forControlEvents:UIControlEventTouchUpInside];
+    pin.rightCalloutAccessoryView = rightButton;
     
     return pin;
 }

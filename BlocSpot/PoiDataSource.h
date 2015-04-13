@@ -19,9 +19,11 @@ typedef void (^NewItemCompletionBlock)(NSError *error);
 -(void)persistItem:(MKMapItem *)mkMapItem;
 -(void)fetchSavedItems;
 -(bool)existsInSavedMapItems:(NSString *)locationName;
--(MapItem *)getMapItemWithLocationName:(NSString *)locationName;
+-(MapItem *)getSavedMapItemWithLocationName:(NSString *)locationName;
 -(void)updateExistingMapItem:(MapItem *)mapItem;
 -(void)deleteItemWithMapItem:(MapItem *)mapItem;
+-(void)persistItemWithItem:(MapItem *)mapItem;
+-(MapItem *)getMapItemWithLocationName:(NSString *)locationName;
 
 + (instancetype) sharedInstance;
 

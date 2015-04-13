@@ -86,6 +86,15 @@
     }
 }
 
+-(void)persistItemWithItem:(MapItem *)mapItem{
+    bool isAlreadySaved = [self existsInSavedMapItems:mapItem.locationName];
+    if(!isAlreadySaved){
+        mapItem.isSavedItem = YES;
+        [self.savedMapItems addObject:mapItem];
+        [self persistNotes];
+    }
+}
+
 //NOTE: only used by callout controller, can save every time
 -(void)updateExistingMapItem:(MapItem *)mapItem{
     [self persistNotes];
@@ -99,10 +108,26 @@
     [NSKeyedArchiver archiveRootObject:dataDict toFile:filePath];
 }
 
--(MapItem *)getMapItemWithLocationName:(NSString *)locationName{
+-(MapItem *)getSavedMapItemWithLocationName:(NSString *)locationName{
     for(MapItem *item in self.savedMapItems){
         if([item.locationName isEqualToString:locationName]){
             return item;
+        }
+    }
+    
+    return nil;
+}
+
+-(MapItem *)getMapItemWithLocationName:(NSString *)locationName{
+    MapItem *mapItem = [[MapItem alloc] init];
+    
+    for(MKMapItem *item in self.mapItems){
+        if([item.name isEqualToString:locationName]){
+            mapItem.locationName = item.name;
+            mapItem.latitude = item.placemark.coordinate.latitude;
+            mapItem.longitude = item.placemark.coordinate.longitude;
+            
+            return mapItem;
         }
     }
     
