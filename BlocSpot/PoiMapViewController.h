@@ -16,5 +16,6 @@
 @property (weak,nonatomic) NSArray *mapItems;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) MapItem *mapItemToShow;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end

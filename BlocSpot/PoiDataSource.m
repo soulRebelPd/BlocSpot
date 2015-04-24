@@ -8,6 +8,8 @@
 
 #import "PoiDataSource.h"
 #import "MapItem.h"
+#import <CoreLocation/CoreLocation.h>
+#import "RegionMonitor.h"
 
 @implementation PoiDataSource
 
@@ -24,15 +26,6 @@
     self = [super init];
     
     if (self) {
-        self.locationManager = [[CLLocationManager alloc] init];
-        self.locationManager.delegate = self;
-        
-        // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
-        if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-            [self.locationManager requestWhenInUseAuthorization];
-        }
-        
-        [self.locationManager startUpdatingLocation];
         
         self.savedMapItems = [[NSMutableArray alloc] init];
     }
@@ -83,6 +76,9 @@
     mapItem.longitude = mkMapItem.placemark.coordinate.longitude;
     mapItem.isSavedItem = YES;
     
+    MKCircle *circle = [MKCircle circleWithCenterCoordinate:mkMapItem.placemark.coordinate radius:10];
+    [[RegionMonitor sharedInstance] registerRegionWithCircularOverlay:circle andIdentifier:mapItem.locationName];
+    
     bool isAlreadySaved = [self existsInSavedMapItems:mapItem.locationName];
     if(!isAlreadySaved){
         [self.savedMapItems addObject:mapItem];
@@ -90,14 +86,17 @@
     }
 }
 
-//NOTE: only used by callout controller, can save every time
--(void)updateExistingMapItem:(MapItem *)mapItem{
-    [self persistNotes];
+-(void)persistItemWithItem:(MapItem *)mapItem{
+    bool isAlreadySaved = [self existsInSavedMapItems:mapItem.locationName];
+    if(!isAlreadySaved){
+        mapItem.isSavedItem = YES;
+        [self.savedMapItems addObject:mapItem];
+        [self persistNotes];
+    }
 }
 
--(void)saveNote:(NSString *)note withLocationName:(NSString *)locationName{
-    MapItem *mapItem = [self getMapItemWithLocationName:locationName];
-    mapItem.note = note;
+//NOTE: only used by callout controller, can save every time
+-(void)updateExistingMapItem:(MapItem *)mapItem{
     [self persistNotes];
 }
 
@@ -109,7 +108,7 @@
     [NSKeyedArchiver archiveRootObject:dataDict toFile:filePath];
 }
 
--(MapItem *)getMapItemWithLocationName:(NSString *)locationName{
+-(MapItem *)getSavedMapItemWithLocationName:(NSString *)locationName{
     for(MapItem *item in self.savedMapItems){
         if([item.locationName isEqualToString:locationName]){
             return item;
@@ -119,8 +118,20 @@
     return nil;
 }
 
-- (CLLocation *) getLastLocation{
-    return self.locationManager.location;
+-(MapItem *)getMapItemWithLocationName:(NSString *)locationName{
+    MapItem *mapItem = [[MapItem alloc] init];
+    
+    for(MKMapItem *item in self.mapItems){
+        if([item.name isEqualToString:locationName]){
+            mapItem.locationName = item.name;
+            mapItem.latitude = item.placemark.coordinate.latitude;
+            mapItem.longitude = item.placemark.coordinate.longitude;
+            
+            return mapItem;
+        }
+    }
+    
+    return nil;
 }
 
 -(bool)existsInSavedMapItems:(NSString *)locationName{
@@ -133,12 +144,13 @@
     return false;
 }
 
+-(void)deleteItemWithMapItem:(MapItem *)mapItem{
+    [self.savedMapItems removeObject:mapItem];
+    [self persistNotes];
+}
+
 
 #pragma mark - Map - Internal Only
-
-- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-}
 
 -(NSString *)filePath{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

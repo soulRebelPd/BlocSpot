@@ -8,6 +8,7 @@
 
 #import "CallViewController.h"
 #import "PoiDataSource.h"
+#import "RegionMonitor.h"
 
 @implementation CallViewController
 
@@ -18,6 +19,7 @@
 - (IBAction)saveClicked:(id)sender {
     self.mapItem.note = self.note.text;
     
+    [[PoiDataSource sharedInstance] persistItemWithItem:self.mapItem];
     [[PoiDataSource sharedInstance] updateExistingMapItem:self.mapItem];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -37,12 +39,9 @@
     }
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (IBAction)deleteClicked:(id)sender {
+    [[PoiDataSource sharedInstance] deleteItemWithMapItem:self.mapItem];
+    [[RegionMonitor sharedInstance] unregisterRegionWithName:self.mapItem.locationName];
 }
-*/
 
 @end

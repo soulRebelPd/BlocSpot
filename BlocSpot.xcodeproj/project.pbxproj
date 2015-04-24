@@ -11,6 +11,7 @@
 		04136BF21ACC4CBA00E58C34 /* MapItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04136BF11ACC4CBA00E58C34 /* MapItemCell.xib */; };
 		04136BF51ACC4FE000E58C34 /* MapItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04136BF41ACC4FE000E58C34 /* MapItemCell.m */; };
 		04136C351ACD986600E58C34 /* MapItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04136C341ACD986600E58C34 /* MapItem.m */; };
+		041F8B1C1AD857800067A34C /* RegionMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F8B1B1AD857800067A34C /* RegionMonitor.m */; };
 		045ED73B1AD334A4006CE8BD /* PoiDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED73A1AD334A4006CE8BD /* PoiDataSource.m */; };
 		045ED73E1AD3352D006CE8BD /* PoiTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED73D1AD3352D006CE8BD /* PoiTableViewController.m */; };
 		045ED7411AD33633006CE8BD /* PoiMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED7401AD33633006CE8BD /* PoiMapViewController.m */; };
@@ -44,6 +45,8 @@
 		04136BF41ACC4FE000E58C34 /* MapItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapItemCell.m; sourceTree = "<group>"; };
 		04136C331ACD986600E58C34 /* MapItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapItem.h; sourceTree = "<group>"; };
 		04136C341ACD986600E58C34 /* MapItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapItem.m; sourceTree = "<group>"; };
+		041F8B1A1AD857800067A34C /* RegionMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionMonitor.h; sourceTree = "<group>"; };
+		041F8B1B1AD857800067A34C /* RegionMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionMonitor.m; sourceTree = "<group>"; };
 		045ED7391AD334A4006CE8BD /* PoiDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoiDataSource.h; sourceTree = "<group>"; };
 		045ED73A1AD334A4006CE8BD /* PoiDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PoiDataSource.m; sourceTree = "<group>"; };
 		045ED73C1AD3352D006CE8BD /* PoiTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoiTableViewController.h; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				045ED7461AD46051006CE8BD /* CallViewController.h */,
 				045ED7471AD46051006CE8BD /* CallViewController.m */,
 				045ED7441AD46028006CE8BD /* CallViewController.xib */,
+				041F8B1A1AD857800067A34C /* RegionMonitor.h */,
+				041F8B1B1AD857800067A34C /* RegionMonitor.m */,
 			);
 			path = BlocSpot;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				04B2F1051AC5A96D00C339E4 /* BlocSpot.xcdatamodeld in Sources */,
 				04B2F1021AC5A96D00C339E4 /* AppDelegate.m in Sources */,
 				04136BF51ACC4FE000E58C34 /* MapItemCell.m in Sources */,
+				041F8B1C1AD857800067A34C /* RegionMonitor.m in Sources */,
 				045ED73B1AD334A4006CE8BD /* PoiDataSource.m in Sources */,
 				045ED73E1AD3352D006CE8BD /* PoiTableViewController.m in Sources */,
 				04136BF01ACC2DCC00E58C34 /* TabBarController.m in Sources */,
@@ -403,8 +409,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BlocSpot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -413,8 +421,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BlocSpot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
